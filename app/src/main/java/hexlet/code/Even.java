@@ -1,7 +1,7 @@
 package hexlet.code;
 
 import java.util.Scanner;
-import java.util.Random;
+
 public class Even {
     public static String isEven() {
         Scanner scanner = new Scanner(System.in);
