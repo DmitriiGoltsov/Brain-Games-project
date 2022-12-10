@@ -3,15 +3,15 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Even {
-    public static String isEven() {
+    private static String playerName;
+    public static void isEvenGreeting() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name?");
-        String playerName = scanner.next();
+        playerName = scanner.next();
         System.out.println("Hello, " + playerName + "!");
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         isEvenGame();
-        return playerName;
         }
     public static void isEvenGame() {
         var victoryCount = 0;
@@ -25,7 +25,7 @@ public class Even {
                 i++;
                 victoryCount += 1;
                 if (victoryCount == 3) {
-                    System.out.println("Congratulations! ");
+                    System.out.println("Congratulations, " + playerName + "!");
                     break;
                 }
             } else if (number % 2 != 0 && playerAnswer.equals("no")) {
@@ -33,7 +33,7 @@ public class Even {
                 i++;
                 victoryCount += 1;
                     if (victoryCount == 3) {
-                        System.out.println("Congratulations! " + isEven());
+                        System.out.println("Congratulations, " + playerName + "!");
                         break;
                     }
             } else if (number % 2 == 0 && playerAnswer.equals("no")) {
