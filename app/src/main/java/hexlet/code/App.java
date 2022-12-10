@@ -16,7 +16,7 @@ public class App {
             System.out.println("Your choice: 0");
         } else if (playerInput.equals("2")) {
             System.out.println("Your choice: 2");
-            Even.isEven();
+            Even.isEvenGreeting();
         } else {
             System.out.println("Wrong input");
         }
