@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 import java.util.Scanner;
 
@@ -19,14 +20,16 @@ public class Engine {
             return null;
         }
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!");
+        System.out.println("\nWelcome to the Brain Games!");
         System.out.println("May I have your name?");
         playerName = scanner.next();
-        System.out.println("Hello, " + playerName + "!");
+        System.out.println("\nHello, " + playerName + "!");
         if (playerInput.equals("2")) {
             Even.startEvenGame();
         } else if (playerInput.equals("3")) {
             Calc.startCalcGame();
+        } else if (playerInput.equals("4")) {
+            GCD.findGCD();
         } else {
             System.out.println("Wrong input");
             return null;
