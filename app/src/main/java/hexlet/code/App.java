@@ -11,7 +11,8 @@ public class App {
                 + "\n 0 - Exit"
                 + "\n 1 - Greet"
                 + "\n 2 - Even"
-                + "\n 3 - Calc");
+                + "\n 3 - Calc"
+                + "\n 4 - GCD");
         playerInput = initialScanner.next();
         System.out.println("Your choice is " + playerInput);
         Engine.startEngine();
