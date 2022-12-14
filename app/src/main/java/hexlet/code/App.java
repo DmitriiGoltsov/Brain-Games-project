@@ -15,6 +15,5 @@ public class App {
         playerInput = initialScanner.next();
         System.out.println("Your choice is " + playerInput);
         Engine.startEngine();
-        initialScanner.close();
     }
 }
