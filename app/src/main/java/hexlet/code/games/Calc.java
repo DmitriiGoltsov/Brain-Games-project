@@ -40,15 +40,15 @@ public class Calc {
             var playerAnswer = scanner.next();
             if (expressionResult == Integer.parseInt(playerAnswer)) {
                 System.out.println("Your answer is: " + playerAnswer + "\nCorrect!");
-                i++;
                 victoryCount += 1;
-                if (victoryCount == 3) {
-                    System.out.println("Congratulations, " + playerName + "!");
-                    break;
-                }
+                i++;
             } else {
                 System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + expressionResult
                         + "\nLet's try again, " + playerName);
+                break;
+            }
+            if (victoryCount == 3) {
+                System.out.println("Congratulations, " + playerName + "!");
                 break;
             }
         }
