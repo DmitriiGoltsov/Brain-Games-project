@@ -4,6 +4,7 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -33,6 +34,8 @@ public class Engine {
             GCD.findGCD();
         } else if (playerInput.equals("5")) {
             Progression.startProgressionGame();
+        } else if (playerInput.equals("6")) {
+            Prime.startPrimeGame();
         } else {
             System.out.println("Wrong input");
             return null;
