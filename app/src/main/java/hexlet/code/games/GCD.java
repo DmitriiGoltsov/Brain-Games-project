@@ -9,7 +9,7 @@ public class GCD {
         var victoryCount = 0;
         Scanner scanner = new Scanner(System.in);
 
-        for (var i = 0; i <= 4; i++) {
+        for (var i = 0; i <= 3; i++) {
             // Initializing two given numbers whose GCD should be found.
             int operand1 = (int) (1 + Math.random() * 100);
             int operand2 = (int) (1 + Math.random() * 100);
