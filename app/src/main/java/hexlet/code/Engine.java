@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -30,6 +31,8 @@ public class Engine {
             Calc.startCalcGame();
         } else if (playerInput.equals("4")) {
             GCD.findGCD();
+        } else if (playerInput.equals("5")) {
+            Progression.startProgressionGame();
         } else {
             System.out.println("Wrong input");
             return null;
