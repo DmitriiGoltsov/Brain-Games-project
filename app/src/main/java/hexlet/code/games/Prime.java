@@ -2,23 +2,28 @@ package hexlet.code.games;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.playerName;
+import static hexlet.code.Engine.getPlayerName;
 
 public class Prime {
     public static void startPrimeGame() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+
+        var numberOfRounds = 3;
         var victoryCount = 0;
         Scanner scanner = new Scanner(System.in);
 
         //Start a cycle that counts player's victories and initialize the given number
-        for (var i = 0; i <= 3; i++) {
+        for (var i = 0; i <= numberOfRounds; i++) {
 
             /* Initialize variable "number" that is shown to the player.
             * Player has to answer whether "number" is prime or not.
             * Initialize variable prime. It will be used in conditional checks below
             * the variable "count" counts how many divisors exist to "number" variable.
             * If there are more than 2 then "number" isn't a Prime */
-            int number = (int) (2 + Math.random() * 100);
+
+            int highEndOfSpectrum = 100;
+            int lowEndOfSpectrum = 2;
+            int number = (int) (lowEndOfSpectrum + Math.random() * highEndOfSpectrum);
             boolean prime = true;
             var count = 0;
 
@@ -49,12 +54,12 @@ public class Prime {
             } else if (playerAnswer.equals("yes") && !prime) {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'"
-                        + "\nLet's try again, " + playerName + "!");
+                        + "\nLet's try again, " + getPlayerName() + "!");
                 break;
             } else if (playerAnswer.equals("no") && prime) {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'"
-                        + "\nLet's try again, " + playerName + "!");
+                        + "\nLet's try again, " + getPlayerName() + "!");
                 break;
             } else {
                 System.out.println("Wrong input");
@@ -64,7 +69,7 @@ public class Prime {
             // This part of the code checks the victory condition. If player gives three correct answers,
             // the game shows congratulation text and finish itself.
             if (victoryCount == 3) {
-                System.out.println("Congratulations, " + playerName + "!");
+                System.out.println("Congratulations, " + getPlayerName() + "!");
                 break;
             }
         }

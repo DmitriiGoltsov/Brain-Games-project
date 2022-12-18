@@ -8,16 +8,19 @@ import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
-import static hexlet.code.App.playerInput;
+import static hexlet.code.App.getPlayerInput;
 
 
 public class Engine {
-    public static String playerName;
+    private static String playerName;
+    public static String getPlayerName() {
+        return playerName;
+    }
     public static String startEngine() {
-        if (playerInput.equals("0")) {
+        if (getPlayerInput().equals("0")) {
             return null;
         }
-        if (playerInput.equals("1")) {
+        if (getPlayerInput().equals("1")) {
             Cli.makeTheAcquaintance();
             return null;
         }
@@ -26,15 +29,15 @@ public class Engine {
         System.out.println("May I have your name?");
         playerName = scanner.next();
         System.out.println("\nHello, " + playerName + "!");
-        if (playerInput.equals("2")) {
+        if (getPlayerInput().equals("2")) {
             Even.startEvenGame();
-        } else if (playerInput.equals("3")) {
+        } else if (getPlayerInput().equals("3")) {
             Calc.startCalcGame();
-        } else if (playerInput.equals("4")) {
+        } else if (getPlayerInput().equals("4")) {
             GCD.findGCD();
-        } else if (playerInput.equals("5")) {
+        } else if (getPlayerInput().equals("5")) {
             Progression.startProgressionGame();
-        } else if (playerInput.equals("6")) {
+        } else if (getPlayerInput().equals("6")) {
             Prime.startPrimeGame();
         } else {
             System.out.println("Wrong input");

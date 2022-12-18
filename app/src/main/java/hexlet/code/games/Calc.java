@@ -1,18 +1,23 @@
 package hexlet.code.games;
 
 import java.util.Scanner;
-import static hexlet.code.Engine.playerName;
+
+import static hexlet.code.Engine.getPlayerName;
 
 public class Calc {
     public static void startCalcGame() {
         System.out.println("What is the result of the expression?");
+
+        var numberOfRounds = 3;
         var victoryCount = 0;
         Scanner scanner = new Scanner(System.in);
 
-        for (var i = 0; i <= 4; i++) {
+        for (var i = 0; i <= numberOfRounds; i++) {
+            int highEndOfSpectrum = 100;
+
             // Initializing two different numbers as operands for our expressions
-            int operand1 = (int) (0 + Math.random() * 100);
-            int operand2 = (int) (0 + Math.random() * 100);
+            int operand1 = (int) (Math.random() * highEndOfSpectrum);
+            int operand2 = (int) (Math.random() * highEndOfSpectrum);
 
             // Create an array with the result of the different expressions (with different operators).
             int[] resultsOfExpressions = new int[3];
@@ -41,15 +46,14 @@ public class Calc {
             if (expressionResult == Integer.parseInt(playerAnswer)) {
                 System.out.println("Your answer is: " + playerAnswer + "\nCorrect!");
                 victoryCount += 1;
-                i++;
             } else {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + expressionResult
-                        + "\nLet's try again, " + playerName + "!");
+                        + "\nLet's try again, " + getPlayerName() + "!");
                 break;
             }
             if (victoryCount == 3) {
-                System.out.println("Congratulations, " + playerName + "!");
+                System.out.println("Congratulations, " + getPlayerName() + "!");
                 break;
             }
         }

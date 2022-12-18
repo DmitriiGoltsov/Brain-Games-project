@@ -3,7 +3,10 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class App {
-    public static String playerInput;
+    private static String playerInput;
+    public static String getPlayerInput() {
+        return playerInput;
+    }
     public static void main(String[] args) {
         Scanner initialScanner = new Scanner(System.in);
 
