@@ -49,12 +49,12 @@ public class Prime {
             } else if (playerAnswer.equals("yes") && !prime) {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'"
-                        + "\nLet's try again, " + playerName);
+                        + "\nLet's try again, " + playerName + "!");
                 break;
             } else if (playerAnswer.equals("no") && prime) {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'"
-                        + "\nLet's try again, " + playerName);
+                        + "\nLet's try again, " + playerName + "!");
                 break;
             } else {
                 System.out.println("Wrong input");

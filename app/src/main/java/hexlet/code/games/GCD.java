@@ -36,7 +36,7 @@ public class GCD {
             if (gCD != Integer.parseInt(playerAnswer)) {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + gCD
-                        + "\nLet's try again, " + playerName);
+                        + "\nLet's try again, " + playerName + "!");
                 break;
             }
             if (victoryCount == 3) {

@@ -45,7 +45,7 @@ public class Calc {
             } else {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + expressionResult
-                        + "\nLet's try again, " + playerName);
+                        + "\nLet's try again, " + playerName + "!");
                 break;
             }
             if (victoryCount == 3) {
