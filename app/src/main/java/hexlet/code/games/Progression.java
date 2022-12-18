@@ -49,10 +49,11 @@ public class Progression {
 
             var playerAnswer = scanner.next();
             if (numbers[indexToHide] == Integer.parseInt(playerAnswer)) {
-                System.out.println("Your answer is: " + playerAnswer + "\nCorrect!");
+                System.out.println("Your answer: " + playerAnswer + "\nCorrect!");
                 victoryCount += 1;
             }
             if (numbers[indexToHide] != Integer.parseInt(playerAnswer)) {
+                System.out.println("Your answer: " + playerAnswer);
                 System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + numbers[indexToHide]
                         + "\nLet's try again, " + playerName);
                 break;
