@@ -33,16 +33,17 @@ public class Calc {
             int randomIndex = (int) (0 + Math.random() * bound);
 
             /* Define what expression will be displayed and should be resolved by the player.
-            Plus define a variable that will be use to check the answer*/
+            Plus define a variable that will be used to check the answer*/
             int expressionResult = resultsOfExpressions[randomIndex];
-            System.out.println(expressionsAsStrings[randomIndex]);
 
+            System.out.println("Question: " + expressionsAsStrings[randomIndex]);
             var playerAnswer = scanner.next();
             if (expressionResult == Integer.parseInt(playerAnswer)) {
                 System.out.println("Your answer is: " + playerAnswer + "\nCorrect!");
                 victoryCount += 1;
                 i++;
             } else {
+                System.out.println("Your answer: " + playerAnswer);
                 System.out.println(playerAnswer + " is wrong answer ;(. Correct answer was " + expressionResult
                         + "\nLet's try again, " + playerName);
                 break;
