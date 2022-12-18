@@ -37,7 +37,7 @@ public class Progression {
 
             /* Begin to create a string that will be shown to player, including the covered index. */
             var result = new StringJoiner(" ");
-            result.add("Question: ");
+            result.add("Question:");
             for (var i2 = 0; i2 < numbers.length; i2++) {
                 if (i2 == indexToHide) {
                     result.add("..");
