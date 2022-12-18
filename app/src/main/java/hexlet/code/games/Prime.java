@@ -68,7 +68,7 @@ public class Prime {
 
             // This part of the code checks the victory condition. If player gives three correct answers,
             // the game shows congratulation text and finish itself.
-            if (victoryCount == 3) {
+            if (victoryCount == numberOfRounds) {
                 System.out.println("Congratulations, " + getPlayerName() + "!");
                 break;
             }

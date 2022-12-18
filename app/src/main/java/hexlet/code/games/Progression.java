@@ -61,7 +61,7 @@ public class Progression {
                         + "\nLet's try again, " + getPlayerName() + "!");
                 break;
             }
-            if (victoryCount == 3) {
+            if (victoryCount == numberOfRounds) {
                 System.out.println("Congratulations, " + getPlayerName() + "!");
                 break;
             }

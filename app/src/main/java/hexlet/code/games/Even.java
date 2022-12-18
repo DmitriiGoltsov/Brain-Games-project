@@ -24,7 +24,7 @@ public class Even {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println("Correct!");
                 victoryCount += 1;
-                if (victoryCount == 3) {
+                if (victoryCount == numberOfRounds) {
                     System.out.println("Congratulations, " + getPlayerName() + "!");
                     break;
                 }
@@ -32,7 +32,7 @@ public class Even {
                 System.out.println("Your answer: " + playerAnswer);
                 System.out.println("Correct!");
                 victoryCount += 1;
-                if (victoryCount == 3) {
+                if (victoryCount == numberOfRounds) {
                     System.out.println("Congratulations, " + getPlayerName() + "!");
                     break;
                 }
