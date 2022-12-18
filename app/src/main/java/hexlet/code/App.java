@@ -16,7 +16,7 @@ public class App {
                 + "\n 6 - Prime"
                 + "\n 0 - Exit");
         playerInput = initialScanner.next();
-        System.out.println("Your choice is " + playerInput);
+        System.out.println("Your choice: " + playerInput);
         Engine.startEngine();
         initialScanner.close();
     }
