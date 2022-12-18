@@ -57,7 +57,7 @@ public class Progression {
                 victoryCount += 1;
             }
             if (numbers[indexToHide] != Integer.parseInt(playerAnswer)) {
-                System.out.println("Your answer: " + playerAnswer +"\n" + playerAnswer
+                System.out.println("Your answer: " + playerAnswer + "\n" + playerAnswer
                         + " is wrong answer ;(. Correct answer was " + numbers[indexToHide]
                         + "\nLet's try again, " + getPlayerName() + "!");
                 break;
