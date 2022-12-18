@@ -32,11 +32,13 @@ public class Even {
                 }
             } else if (number % 2 == 0 && playerAnswer.equals("no")) {
                 System.out.println("Your answer: " + playerAnswer);
-                System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
+                System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'."
+                        + "\nLet's try again, " + playerName + "!");
                 break;
             } else if (number % 2 != 0 && playerAnswer.equals("yes")) {
                 System.out.println("Your answer: " + playerAnswer);
-                System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
+                System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'."
+                        + "\nLet's try again, " + playerName + "!");
                 break;
             } else {
                 System.out.println("Your answer: " + playerAnswer);
