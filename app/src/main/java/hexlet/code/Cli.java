@@ -5,8 +5,7 @@ public class Cli {
     public static void makeTheAcquaintance() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name?");
+        System.out.println("Welcome to the Brain Games!" + "\nMay I have your name?");
         String playerName = scanner.next();
         System.out.println("Hello, " + playerName + "!");
 
