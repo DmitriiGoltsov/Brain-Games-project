@@ -21,7 +21,7 @@ public class Progression {
             */
             final var lengthOfProgression = 10;
             int[] numbers = new int[lengthOfProgression];
-            String[] numbersAsStrings = new String[10];
+            String[] numbersAsStrings = new String[lengthOfProgression];
 
             // The variable bellow is to define the common difference of our progression. It can't be zero.
             final int highEndOfSpectrum = 100;

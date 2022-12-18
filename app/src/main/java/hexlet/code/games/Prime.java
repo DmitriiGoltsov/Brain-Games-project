@@ -26,7 +26,7 @@ public class Prime {
             int number = (int) (lowEndOfSpectrum + Math.random() * highEndOfSpectrum);
             boolean prime = true;
             var count = 0;
-            final int NumberOfPrimeDivisors = 2;
+            final int numberOfPrimeDivisors = 2;
 
             /*This part of code checks whether "number" variable is prime or not. It also fills "prime" variable.
             * It divides "number" on every possible number from 1 to "number" itself.
@@ -37,7 +37,7 @@ public class Prime {
                 if (check == 0) {
                     count++;
                 }
-                if (count > NumberOfPrimeDivisors) {
+                if (count > numberOfPrimeDivisors) {
                     prime = false;
                 }
             }
