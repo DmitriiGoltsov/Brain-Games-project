@@ -8,19 +8,22 @@ public class Calc {
     public static void startCalcGame() {
         System.out.println("What is the result of the expression?");
 
-        var numberOfRounds = 3;
+        final var numberOfRounds = 3;
         var victoryCount = 0;
         Scanner scanner = new Scanner(System.in);
 
         for (var i = 0; i <= numberOfRounds; i++) {
-            int highEndOfSpectrum = 100;
+           final int highEndOfSpectrum = 100;
 
             // Initializing two different numbers as operands for our expressions
             int operand1 = (int) (Math.random() * highEndOfSpectrum);
             int operand2 = (int) (Math.random() * highEndOfSpectrum);
 
             // Create an array with the result of the different expressions (with different operators).
-            int[] resultsOfExpressions = new int[3];
+            // The numberOfOperations variable depends upon how many operations game can offer to the player.
+            // E.g. if only "+, - and *" operations are possible, this variable should be 3.
+            final int numbersOfOperations = 3;
+            int[] resultsOfExpressions = new int[numbersOfOperations];
             resultsOfExpressions[0] = operand1 + operand2;
             resultsOfExpressions[1] = operand1 - operand2;
             resultsOfExpressions[2] = operand1 * operand2;
