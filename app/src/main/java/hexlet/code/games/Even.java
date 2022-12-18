@@ -10,9 +10,10 @@ public class Even {
         Scanner scanner = new Scanner(System.in);
         for (var i = 0; i <= 4; i++) {
             int number = (int) (0 + Math.random() * 1000);
-            System.out.println(number);
+            System.out.println("Question: " + number);
             var playerAnswer = scanner.next();
             if (number % 2 == 0 && playerAnswer.equals("yes")) {
+                System.out.println("Your answer: " + playerAnswer);
                 System.out.println("Correct!");
                 i++;
                 victoryCount += 1;
@@ -21,6 +22,7 @@ public class Even {
                     break;
                 }
             } else if (number % 2 != 0 && playerAnswer.equals("no")) {
+                System.out.println("Your answer: " + playerAnswer);
                 System.out.println("Correct!");
                 i++;
                 victoryCount += 1;
@@ -29,12 +31,15 @@ public class Even {
                     break;
                 }
             } else if (number % 2 == 0 && playerAnswer.equals("no")) {
-                System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.");
+                System.out.println("Your answer: " + playerAnswer);
+                System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'.");
                 break;
             } else if (number % 2 != 0 && playerAnswer.equals("yes")) {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.");
+                System.out.println("Your answer: " + playerAnswer);
+                System.out.println("'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'.");
                 break;
             } else {
+                System.out.println("Your answer: " + playerAnswer);
                 System.out.println("Wrong input");
                 break;
             }
