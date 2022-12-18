@@ -8,7 +8,7 @@ public class Prime {
     public static void startPrimeGame() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
-        var numberOfRounds = 3;
+        final var numberOfRounds = 3;
         var victoryCount = 0;
         Scanner scanner = new Scanner(System.in);
 
@@ -21,11 +21,12 @@ public class Prime {
             * the variable "count" counts how many divisors exist to "number" variable.
             * If there are more than 2 then "number" isn't a Prime */
 
-            int highEndOfSpectrum = 100;
+            final int highEndOfSpectrum = 100;
             int lowEndOfSpectrum = 2;
             int number = (int) (lowEndOfSpectrum + Math.random() * highEndOfSpectrum);
             boolean prime = true;
             var count = 0;
+            final int NumberOfPrimeDivisors = 2;
 
             /*This part of code checks whether "number" variable is prime or not. It also fills "prime" variable.
             * It divides "number" on every possible number from 1 to "number" itself.
@@ -36,7 +37,7 @@ public class Prime {
                 if (check == 0) {
                     count++;
                 }
-                if (count >= 3) {
+                if (count > NumberOfPrimeDivisors) {
                     prime = false;
                 }
             }

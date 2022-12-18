@@ -9,11 +9,11 @@ public class GCD {
         System.out.println("Find the greatest common divisor of given numbers.");
         var victoryCount = 0;
         Scanner scanner = new Scanner(System.in);
-        var numberOfRounds = 3;
+        final var numberOfRounds = 3;
 
         for (var i = 0; i <= numberOfRounds; i++) {
-            int highEndOfSpectrum = 100;
-            int lowEndOfSpectrum = 1; /* the low end is needed to prevent situations
+            final int highEndOfSpectrum = 100;
+            final int lowEndOfSpectrum = 1; /* the low end is needed to prevent situations
             where player has to find GCD and one operand is zero. */
 
             // Initializing two given numbers whose GCD should be found.

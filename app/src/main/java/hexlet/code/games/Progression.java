@@ -9,7 +9,7 @@ public class Progression {
     public static void startProgressionGame() {
         System.out.println("What number is missing in the progression?");
 
-        var numberOfRounds = 3;
+        final var numberOfRounds = 3;
         var victoryCount = 0;
         Scanner scanner = new Scanner(System.in);
 
@@ -19,12 +19,13 @@ public class Progression {
             /* Create two arrays that will be used in the game.
             Their length is defined by the length of the progression which is defined by the TOR of the game
             */
-            int[] numbers = new int[10];
+            final var lengthOfProgression = 10;
+            int[] numbers = new int[lengthOfProgression];
             String[] numbersAsStrings = new String[10];
 
             // The variable bellow is to define the common difference of our progression. It can't be zero.
-            int highEndOfSpectrum = 100;
-            int lowEndOfSpectrum = 1;
+            final int highEndOfSpectrum = 100;
+            final int lowEndOfSpectrum = 1;
             var commonDifference = (int) (lowEndOfSpectrum + Math.random() * highEndOfSpectrum);
             numbers[0] = commonDifference; // Manually define 0-index of our int array.
             numbersAsStrings[0] = Integer.toString(commonDifference); // The same to string array.

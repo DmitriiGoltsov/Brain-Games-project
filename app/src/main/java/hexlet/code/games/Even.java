@@ -8,14 +8,14 @@ public class Even {
     public static void startEvenGame() {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
-        var numberOfRounds = 3; // Player should win 3 times to achieve the complete victory.
+        final var numberOfRounds = 3; // Player should win 3 times to achieve the complete victory.
         var victoryCount = 0;
         Scanner scanner = new Scanner(System.in);
 
         for (var i = 0; i <= numberOfRounds; i++) {
             /* Establish high ens (limit) of the spectrum (diapason).
             The programme will create a random number whose evenness player should check in that diapason */
-            int highEndOfSpectrum = 1000;
+            final int highEndOfSpectrum = 1000;
 
             int number = (int) (Math.random() * highEndOfSpectrum);
             System.out.println("Question: " + number);
