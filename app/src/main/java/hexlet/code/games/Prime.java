@@ -35,7 +35,7 @@ public class Prime {
                     prime = false;
                 }
             }
-            System.out.println(number);
+            System.out.println("Question: " + number);
             var playerAnswer = scanner.next();
 
             /*This part of code checks if player's answers were correct or no.
