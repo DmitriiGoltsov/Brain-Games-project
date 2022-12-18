@@ -21,16 +21,14 @@ public class Even {
             System.out.println("Question: " + number);
             var playerAnswer = scanner.next().toLowerCase();
             if (number % 2 == 0 && playerAnswer.equals("yes")) {
-                System.out.println("Your answer: " + playerAnswer);
-                System.out.println("Correct!");
+                System.out.println("Your answer: " + playerAnswer + "\nCorrect!");
                 victoryCount += 1;
                 if (victoryCount == numberOfRounds) {
                     System.out.println("Congratulations, " + getPlayerName() + "!");
                     break;
                 }
             } else if (number % 2 != 0 && playerAnswer.equals("no")) {
-                System.out.println("Your answer: " + playerAnswer);
-                System.out.println("Correct!");
+                System.out.println("Your answer: " + playerAnswer + "\nCorrect!");
                 victoryCount += 1;
                 if (victoryCount == numberOfRounds) {
                     System.out.println("Congratulations, " + getPlayerName() + "!");
