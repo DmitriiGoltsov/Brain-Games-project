@@ -5,8 +5,6 @@ import hexlet.code.Utils;
 
 import java.util.Scanner;
 
-import static hexlet.code.Engine.getPlayerName;
-
 public class Calc {
     public static void startCalcGame() {
         Engine.askName();
@@ -21,10 +19,10 @@ public class Calc {
             final int highRange = 100;
 
             // Initializing two different numbers as operands for our expressions
-            int operand1 = Utils.generateRanNum(lowRange, highRange);
-            int operand2 = Utils.generateRanNum(lowRange, highRange);
+            int operand1 = generateRoundData(lowRange, highRange);
+            int operand2 = generateRoundData(lowRange, highRange);
 
-            int resultOfExpression = generateRoundDate(operand1, operand2);
+            int resultOfExpression = calculate(operand1, operand2);
 
             var playerAnswer = scanner.next();
             if (resultOfExpression == Integer.parseInt(playerAnswer)) {
@@ -41,22 +39,26 @@ public class Calc {
         }
     }
 
-    public static int generateRoundDate(int operand1, int operand2) {
+    public static int generateRoundData(int lowRange, int highRange) {
+        return Utils.generateRanNum(lowRange, highRange);
+    }
+
+    public static int calculate(int operand1, int operand2) {
         final String[] operators = {"+", "-", "*"};
         int randomIndex = Utils.generateRanNum(operators.length);
         int result;
-        switch (randomIndex) {
-            case 0 -> {
+        switch (operators[randomIndex]) {
+            case "+" -> {
                 result = operand1 + operand2;
                 System.out.println("Question: " + operand1 + " + " + operand2);
                 return result;
             }
-            case 1 -> {
+            case "-" -> {
                 result = operand1 - operand2;
                 System.out.println("Question: " + operand1 + " - " + operand2);
                 return result;
             }
-            case 2 -> {
+            case "*" -> {
                 result = operand1 * operand2;
                 System.out.println("Question: " + operand1 + " * " + operand2);
                 return result;

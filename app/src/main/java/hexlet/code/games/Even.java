@@ -16,7 +16,7 @@ public class Even {
             Scanner scanner = new Scanner(System.in);
             final int startOfRange = 0;
             final int endOfRange = 1000;
-            int numberForGame = generateRoundDate(startOfRange, endOfRange);
+            int numberForGame = generateRoundData(startOfRange, endOfRange);
 
             System.out.println("Question: " + numberForGame);
             var playerAnswer = scanner.next();
@@ -34,16 +34,13 @@ public class Even {
         }
     }
 
-    public static int generateRoundDate(int lowRange, int highRange) {
+    public static int generateRoundData(int lowRange, int highRange) {
         return Utils.generateRanNum(lowRange, highRange);
     }
 
     public static boolean isEven(int checkedNum, String checkedAnswer) {
         if (checkedNum % 2 == 0 && checkedAnswer.equals("yes")) {
             return true;
-        } else if (checkedNum % 2 != 0 && checkedAnswer.equals("no")) {
-            return true;
-        }
-        return false;
+        } else return checkedNum % 2 != 0 && checkedAnswer.equals("no");
     }
 }
