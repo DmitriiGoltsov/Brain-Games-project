@@ -1,11 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-
 import java.util.Scanner;
 
 import static hexlet.code.App.getPlayerInput;
@@ -16,21 +10,32 @@ public class Engine {
     public static String getPlayerName() {
         return playerName;
     }
-    public static void startEngine() {
+    public static void askName() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWelcome to the Brain Games!" + "\nMay I have your name?");
         playerName = scanner.next();
         System.out.println("\nHello, " + playerName + "!");
-        if (getPlayerInput().equals("2")) {
-            Even.startEvenGame();
-        } else if (getPlayerInput().equals("3")) {
-            Calc.startCalcGame();
-        } else if (getPlayerInput().equals("4")) {
-            GCD.findGCD();
-        } else if (getPlayerInput().equals("5")) {
-            Progression.startProgressionGame();
-        } else if (getPlayerInput().equals("6")) {
-            Prime.startPrimeGame();
-        }
     }
+    public static String congratulate() {
+        String conMessage = "Congratulation, " + getPlayerName() + "!";
+        return conMessage;
+    }
+
+    public static String sendSadMessage(String wrongAnswer) {
+        return switch (wrongAnswer) {
+            case "yes" -> "Your answer: " + wrongAnswer + "\n" + wrongAnswer
+                    + " is wrong answer ;(. Correct answer was no"
+                    + "\nLet's try again, " + getPlayerName() + "!";
+            case "no" -> "Your answer: " + wrongAnswer + "\n" + wrongAnswer
+                    + " is wrong answer ;(. Correct answer was yes"
+                    + "\nLet's try again, " + getPlayerName() + "!";
+            default -> "Wrong input";
+        };
+    }
+
+    public static String sendSadMessage(int wrongAnswer, int correctAnswer) {
+        return "Your answer: " + wrongAnswer + "\n" + wrongAnswer
+                    + " is wrong answer ;(. Correct answer was " + correctAnswer
+                    + "\nLet's try again, " + getPlayerName() + "!";
+        }
 }
