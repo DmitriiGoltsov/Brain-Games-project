@@ -2,9 +2,6 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.App.getPlayerInput;
-
-
 public class Engine {
     private static String playerName;
     public static String getPlayerName() {
@@ -12,13 +9,15 @@ public class Engine {
     }
     public static void askName() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nWelcome to the Brain Games!" + "\nMay I have your name?");
+        System.out.println("""
+
+                Welcome to the Brain Games!
+                May I have your name?""");
         playerName = scanner.next();
         System.out.println("\nHello, " + playerName + "!");
     }
     public static String congratulate() {
-        String conMessage = "Congratulation, " + getPlayerName() + "!";
-        return conMessage;
+        return "Congratulations, " + getPlayerName() + "!";
     }
 
     public static String sendSadMessage(String wrongAnswer) {
