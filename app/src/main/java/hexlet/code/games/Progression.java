@@ -41,9 +41,7 @@ public class Progression {
             }
         }
     }
-
     public static String generateProgString(int[] numbers, int indexToHide) {
-
         String[] numsString = new String[numbers.length];
         for (var i = 0; i < numbers.length; i++) {
             for (var j = 0; j < numsString.length; j++) {
@@ -58,7 +56,6 @@ public class Progression {
         }
         return result.toString();
     }
-
     public static int[] generateProgression(int commonDifference) {
         final var lengthOfProgression = 10;
         int[] numbers = new int[lengthOfProgression];

@@ -1,76 +1,48 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import hexlet.code.Utils;
 import java.util.Scanner;
 
-import static hexlet.code.Engine.getPlayerName;
-
 public class Prime {
-    public static void startPrimeGame() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
-        final var numberOfRounds = 3;
-        var victoryCount = 0;
-        Scanner scanner = new Scanner(System.in);
-
-        //Start a cycle that counts player's victories and initialize the given number
-        for (var i = 0; i <= numberOfRounds; i++) {
-
-            /* Initialize variable "number" that is shown to the player.
-            * Player has to answer whether "number" is prime or not.
-            * Initialize variable prime. It will be used in conditional checks below
-            * the variable "count" counts how many divisors exist to "number" variable.
-            * If there are more than 2 then "number" isn't a Prime */
-
-            final int highEndOfSpectrum = 100;
-            int lowEndOfSpectrum = 2;
-            int number = (int) (lowEndOfSpectrum + Math.random() * highEndOfSpectrum);
-            boolean prime = true;
-            var count = 0;
-            final int numberOfPrimeDivisors = 2;
-
-            /*This part of code checks whether "number" variable is prime or not. It also fills "prime" variable.
-            * It divides "number" on every possible number from 1 to "number" itself.
-            * Prime numbers can be divided only by 1 and per se. Thus, if a number can be divided more than 2 times,
-            * then it is not a prime number. */
-            for (var i2 = 1; i2 <= number; i2++) {
-                var check = number % i2;
-                if (check == 0) {
-                    count++;
-                }
+    public static boolean isPrime(int number) {
+        final int numberOfPrimeDivisors = 2;
+        var count = 0;
+        for (var i = 1; i <= number; i++) {
+            var tempCheck = number % i;
+            if (tempCheck == 0) {
+                count++;
                 if (count > numberOfPrimeDivisors) {
-                    prime = false;
+                    return false;
                 }
             }
-            System.out.println("Question: " + number);
-            var playerAnswer = scanner.next();
+        }
+        return true;
+    }
+    public static void startPrimeGame() {
+        Engine.askName();
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        final var numberOfRounds = 3;
+        final int lowRange = 2;
+        final int highRange = 100;
+        var victoryCount = 0;
 
-            /*This part of code checks if player's answers were correct or no.
-            If answers are correct, it decrements victoryCount variable for the sake of the next part of the code. */
-            if (playerAnswer.equals("yes") && prime) {
-                System.out.println("Your answer: yes \nCorrect!");
-                victoryCount++;
-            } else if (playerAnswer.equals("no") && !prime) {
-                System.out.println("Your answer: no \nCorrect!");
-                victoryCount++;
-            } else if (playerAnswer.equals("yes") && !prime) {
-                System.out.println("Your answer: " + playerAnswer
-                        + "\n'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'no'"
-                        + "\nLet's try again, " + getPlayerName() + "!");
-                break;
-            } else if (playerAnswer.equals("no") && prime) {
-                System.out.println("Your answer: " + playerAnswer
-                        + "\n'" + playerAnswer + "'" + " is wrong answer ;(. Correct answer was 'yes'"
-                        + "\nLet's try again, " + getPlayerName() + "!");
-                break;
+        Scanner scanner = new Scanner(System.in);
+        for (var i = 0; i <= numberOfRounds; i++) {
+            int number = Utils.generateRanNum(lowRange, highRange);
+
+            System.out.println("Question: " + number);
+            var playerAnswer = scanner.next().toLowerCase();
+
+            if ((isPrime(number) && playerAnswer.equals("yes")) || (!isPrime(number) && playerAnswer.equals("no"))) {
+                victoryCount += 1;
+                System.out.println("Your answer: " + playerAnswer + "\nCorrect!");
             } else {
-                System.out.println("Wrong input");
+                System.out.println(Engine.sendSadMessage(playerAnswer));
                 break;
             }
-
-            // This part of the code checks the victory condition. If player gives three correct answers,
-            // the game shows congratulation text and finish itself.
             if (victoryCount == numberOfRounds) {
-                System.out.println("Congratulations, " + getPlayerName() + "!");
+                System.out.println(Engine.congratulate());
                 break;
             }
         }

@@ -19,7 +19,6 @@ public class Engine {
     public static String congratulate() {
         return "Congratulations, " + getPlayerName() + "!";
     }
-
     public static String sendSadMessage(String wrongAnswer) {
         return switch (wrongAnswer) {
             case "yes" -> "Your answer: " + wrongAnswer + "\n" + wrongAnswer
@@ -31,7 +30,6 @@ public class Engine {
             default -> "Wrong input";
         };
     }
-
     public static String sendSadMessage(int wrongAnswer, int correctAnswer) {
         return "Your answer: " + wrongAnswer + "\n" + wrongAnswer
                     + " is wrong answer ;(. Correct answer was " + correctAnswer
