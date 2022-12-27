@@ -9,18 +9,16 @@ public class Progression {
 
     public static void startProgressionGame() {
         Engine.askName();
+        System.out.println("What number is missing in the progression?");
         final var numberOfRounds = 3;
         final int highRange = 100;
         final int lowRange = 1;
-
         var victoryCount = 0;
         for (var j = 0; j <= numberOfRounds; j++) {
             var commonDifference = Utils.generateRanNum(lowRange, highRange);
             int[] numbers = generateProgression(commonDifference);
             var indexToHide = Utils.generateRanNum(numbers.length);
-            var correctAnswer = numbers[indexToHide];
 
-            System.out.println("What number is missing in the progression?");
             String numbersToShow = generateProgString(numbers, indexToHide);
             System.out.println("Question: " + numbersToShow);
             Scanner scanner = new Scanner(System.in);
@@ -30,7 +28,7 @@ public class Progression {
                 victoryCount += 1;
             }
             if (numbers[indexToHide] != Integer.parseInt(playerAnswer)) {
-                System.out.println(Engine.sendSadMessage(Integer.parseInt(playerAnswer), correctAnswer));
+                System.out.println(Engine.sendSadMessage(Integer.parseInt(playerAnswer), numbers[indexToHide]));
                 break;
             }
             if (victoryCount == numberOfRounds) {
