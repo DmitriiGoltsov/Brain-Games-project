@@ -15,7 +15,6 @@ public class Progression {
 
         var victoryCount = 0;
         for (var j = 0; j <= numberOfRounds; j++) {
-
             var commonDifference = Utils.generateRanNum(lowRange, highRange);
             int[] numbers = generateProgression(commonDifference);
             var indexToHide = Utils.generateRanNum(numbers.length);
@@ -24,7 +23,6 @@ public class Progression {
             System.out.println("What number is missing in the progression?");
             String numbersToShow = generateProgString(numbers, indexToHide);
             System.out.println("Question: " + numbersToShow);
-
             Scanner scanner = new Scanner(System.in);
             var playerAnswer = scanner.next();
             if (numbers[indexToHide] == Integer.parseInt(playerAnswer)) {
