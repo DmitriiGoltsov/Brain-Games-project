@@ -52,7 +52,7 @@ public class Progression {
             }
         }
         numsString[indexToHide] = "..";
-        var result = new StringJoiner(" , ");
+        var result = new StringJoiner(" ");
         for (var numString : numsString) {
             result.add(numString);
         }
