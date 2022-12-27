@@ -33,7 +33,6 @@ public class Even {
             }
         }
     }
-
     public static int generateRoundData(int lowRange, int highRange) {
         return Utils.generateRanNum(lowRange, highRange);
     }
@@ -41,6 +40,8 @@ public class Even {
     public static boolean isEven(int checkedNum, String checkedAnswer) {
         if (checkedNum % 2 == 0 && checkedAnswer.equals("yes")) {
             return true;
-        } else return checkedNum % 2 != 0 && checkedAnswer.equals("no");
+        } else {
+            return checkedNum % 2 != 0 && checkedAnswer.equals("no");
+        }
     }
 }

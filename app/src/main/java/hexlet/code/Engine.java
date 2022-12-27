@@ -34,5 +34,5 @@ public class Engine {
         return "Your answer: " + wrongAnswer + "\n" + wrongAnswer
                     + " is wrong answer ;(. Correct answer was " + correctAnswer
                     + "\nLet's try again, " + getPlayerName() + "!";
-        }
+    }
 }

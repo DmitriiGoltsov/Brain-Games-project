@@ -63,7 +63,10 @@ public class Calc {
                 System.out.println("Question: " + operand1 + " * " + operand2);
                 return result;
             }
+            default -> {
+                result = 0;
+                return result;
+            }
         }
-        return 0;
     }
 }
