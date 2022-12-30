@@ -28,7 +28,7 @@ public class Engine {
         System.out.println(description);
         int victoryCount = 0;
         for (var i = 0; i < data.length; i++) {
-            System.out.println("Question: " + Integer.parseInt(data[i]));
+            System.out.println("Question: " + data[i]);
             Scanner scanner = new Scanner(System.in);
             String playerAnswer = scanner.next();
             if (Integer.parseInt(playerAnswer) == correctAnswers[i]) {
