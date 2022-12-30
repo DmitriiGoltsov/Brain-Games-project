@@ -3,36 +3,44 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    private static String playerName;
-    public static String getPlayerName() {
-        return playerName;
+    public static void run(String description, String[] data, String[] correctAnswers) {
+        Utils.askName();
+        System.out.println(description);
+        int victoryCount = 0;
+        for (var i = 0; i < data.length; i++) {
+            System.out.println("Questions: " + data[i]);
+            Scanner scanner = new Scanner(System.in);
+            String playerAnswer = scanner.next();
+            if (playerAnswer.equals(correctAnswers[i])) {
+                System.out.println("Correct!");
+                victoryCount += 1;
+                if (victoryCount == 3) {
+                    System.out.println(Utils.congratulate());
+                }
+            } else {
+                System.out.println(Utils.sendSadMessage(playerAnswer));
+                break;
+            }
+        }
     }
-    public static void askName() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("""
-
-                Welcome to the Brain Games!
-                May I have your name?""");
-        playerName = scanner.next();
-        System.out.println("\nHello, " + playerName + "!");
-    }
-    public static String congratulate() {
-        return "Congratulations, " + getPlayerName() + "!";
-    }
-    public static String sendSadMessage(String wrongAnswer) {
-        return switch (wrongAnswer) {
-            case "yes" -> "Your answer: " + wrongAnswer + "\n" + wrongAnswer
-                    + " is wrong answer ;(. Correct answer was no"
-                    + "\nLet's try again, " + getPlayerName() + "!";
-            case "no" -> "Your answer: " + wrongAnswer + "\n" + wrongAnswer
-                    + " is wrong answer ;(. Correct answer was yes"
-                    + "\nLet's try again, " + getPlayerName() + "!";
-            default -> "Wrong input";
-        };
-    }
-    public static String sendSadMessage(int wrongAnswer, int correctAnswer) {
-        return "Your answer: " + wrongAnswer + "\n" + wrongAnswer
-                    + " is wrong answer ;(. Correct answer was " + correctAnswer
-                    + "\nLet's try again, " + getPlayerName() + "!";
+    public static void run(String description, String[] data, int[] correctAnswers) {
+        Utils.askName();
+        System.out.println(description);
+        int victoryCount = 0;
+        for (var i = 0; i < data.length; i++) {
+            System.out.println("Questions: " + data[i]);
+            Scanner scanner = new Scanner(System.in);
+            String playerAnswer = scanner.next();
+            if (Integer.parseInt(playerAnswer) == correctAnswers[i]) {
+                System.out.println("Correct!");
+                victoryCount += 1;
+                if (victoryCount == 3) {
+                    System.out.println(Utils.congratulate());
+                }
+            } else {
+                System.out.println(Utils.sendSadMessage(Integer.parseInt(playerAnswer), correctAnswers[i]));
+                break;
+            }
+        }
     }
 }
