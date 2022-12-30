@@ -8,7 +8,7 @@ public class Engine {
         System.out.println(description);
         int victoryCount = 0;
         for (var i = 0; i < data.length; i++) {
-            System.out.println("Questions: " + data[i]);
+            System.out.println("Questions: " + Integer.parseInt(data[i]));
             Scanner scanner = new Scanner(System.in);
             String playerAnswer = scanner.next();
             if (playerAnswer.equals(correctAnswers[i])) {
