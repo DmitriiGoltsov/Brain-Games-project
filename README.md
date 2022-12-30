@@ -1,5 +1,25 @@
+Сборник небольших консольных, логико-математических игр - Brain Games.
+
+В сборнике представлены следующие игры:
+
+1) Чётное-нечётное;
+2) Калькулятор;
+3) Найди наибольший общий делитель;
+4) Арифметисческие прогрессии;
+5) Простые числа;
+
+Игра генерирует случайные числа, наборы чисел или прогессии. После чего предлагает игроку выполнить с ними разлчиные несложные арифметические действия. 
+В случае трёх верных решений игрок объяслвется победителем. В случае ошибки начинать придётся сначала. 
+
+Для запуска игры откройте терминал, перейдите в папку с игрой и выполните следующую команду:
+
+`$ make run-dist`
+
+Далее следуйте инструкциям в меню. 
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/DmitriiGoltsov/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/DmitriiGoltsov/java-project-61/actions)
+### Codeclimate codebase summary:
 [![Maintainability](https://api.codeclimate.com/v1/badges/1d032ca1756b7d716d6d/maintainability)](https://codeclimate.com/github/DmitriiGoltsov/java-project-61/maintainability)
 
 [![asciicast](https://asciinema.org/a/544597.svg)](https://asciinema.org/a/544597)
