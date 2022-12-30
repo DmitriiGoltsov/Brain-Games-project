@@ -2,9 +2,30 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import java.util.Scanner;
 
 public class Prime {
+    public static void startPrimeGame() {
+        String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+        final var numberOfRounds = 3;
+        String[] data = new String[numberOfRounds];
+        String[] correctAnswers = new String[numberOfRounds];
+
+        for (var i = 0; i < numberOfRounds; i++) {
+            int number = generateRandomNumber();
+            data[i] = Integer.toString(number);
+            if (isPrime(number)) {
+                correctAnswers[i] = "yes";
+            } else {
+                correctAnswers[i] = "no";
+            }
+        }
+        Engine.run(description, data, correctAnswers);
+    }
+    public static int generateRandomNumber() {
+        final int lowRange = 2;
+        final int highRange = 100;
+        return Utils.generateRandomNumber(lowRange, highRange);
+    }
     public static boolean isPrime(int number) {
         final int numberOfPrimeDivisors = 2;
         var count = 0;
@@ -18,33 +39,5 @@ public class Prime {
             }
         }
         return true;
-    }
-    public static void startPrimeGame() {
-        Engine.askName();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        final var numberOfRounds = 3;
-        final int lowRange = 2;
-        final int highRange = 100;
-        var victoryCount = 0;
-
-        Scanner scanner = new Scanner(System.in);
-        for (var i = 0; i <= numberOfRounds; i++) {
-            int number = Utils.generateRanNum(lowRange, highRange);
-
-            System.out.println("Question: " + number);
-            var playerAnswer = scanner.next().toLowerCase();
-
-            if ((isPrime(number) && playerAnswer.equals("yes")) || (!isPrime(number) && playerAnswer.equals("no"))) {
-                victoryCount += 1;
-                System.out.println("Your answer: " + playerAnswer + "\nCorrect!");
-            } else {
-                System.out.println(Engine.sendSadMessage(playerAnswer));
-                break;
-            }
-            if (victoryCount == numberOfRounds) {
-                System.out.println(Engine.congratulate());
-                break;
-            }
-        }
     }
 }

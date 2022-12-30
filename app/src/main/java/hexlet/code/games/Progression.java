@@ -2,42 +2,26 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import java.util.Scanner;
 import java.util.StringJoiner;
 
 public class Progression {
-
     public static void startProgressionGame() {
-        Engine.askName();
-        System.out.println("What number is missing in the progression?");
+        String description = "What number is missing in the progression?";
         final var numberOfRounds = 3;
-        final int highRange = 100;
-        final int lowRange = 1;
-        var victoryCount = 0;
-        for (var j = 0; j <= numberOfRounds; j++) {
-            var commonDifference = Utils.generateRanNum(lowRange, highRange);
-            int[] numbers = generateProgression(commonDifference);
-            var indexToHide = Utils.generateRanNum(numbers.length);
+        String[] data = new String[numberOfRounds];
+        int[] correctAnswers = new int[numberOfRounds];
 
-            String numbersToShow = generateProgString(numbers, indexToHide);
-            System.out.println("Question: " + numbersToShow);
-            Scanner scanner = new Scanner(System.in);
-            var playerAnswer = scanner.next();
-            if (numbers[indexToHide] == Integer.parseInt(playerAnswer)) {
-                System.out.println("Your answer: " + playerAnswer + "\nCorrect!");
-                victoryCount += 1;
-            }
-            if (numbers[indexToHide] != Integer.parseInt(playerAnswer)) {
-                System.out.println(Engine.sendSadMessage(Integer.parseInt(playerAnswer), numbers[indexToHide]));
-                break;
-            }
-            if (victoryCount == numberOfRounds) {
-                System.out.println(Engine.congratulate());
-                break;
-            }
+        for (var i = 0; i < numberOfRounds; i++) {
+            var commonDifference = createCommonDifference();
+            int[] numbers = generateProgression(commonDifference);
+            var indexToHide = Utils.generateRandomNumber(numbers.length);
+            String numbersToShow = generateProgressionAsString(numbers, indexToHide);
+            data[i] = numbersToShow;
+            correctAnswers[i] = numbers[indexToHide];
         }
+        Engine.run(description, data, correctAnswers);
     }
-    public static String generateProgString(int[] numbers, int indexToHide) {
+    public static String generateProgressionAsString(int[] numbers, int indexToHide) {
         String[] numsString = new String[numbers.length];
         for (var i = 0; i < numbers.length; i++) {
             for (var j = 0; j < numsString.length; j++) {
@@ -60,5 +44,10 @@ public class Progression {
             numbers[i] = numbers[i - 1] + commonDifference;
         }
         return numbers;
+    }
+    public static int createCommonDifference() {
+        final int highRange = 100;
+        final int lowRange = 1;
+        return Utils.generateRandomNumber(lowRange, highRange);
     }
 }
