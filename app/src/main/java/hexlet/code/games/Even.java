@@ -6,6 +6,7 @@ import hexlet.code.Utils;
 public class Even {
     public static void startEvenGame() {
         String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         final var numberOfRounds = 3;
         String[] data = new String[numberOfRounds];
         String[] correctAnswers = new String[numberOfRounds];
