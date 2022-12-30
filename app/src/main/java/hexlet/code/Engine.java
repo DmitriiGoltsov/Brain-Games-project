@@ -14,7 +14,7 @@ public class Engine {
             if (playerAnswer.equals(correctAnswers[i])) {
                 System.out.println("Correct!");
                 victoryCount += 1;
-                if (victoryCount == 3) {
+                if (victoryCount == data.length) {
                     System.out.println(Utils.congratulate());
                 }
             } else {
@@ -34,7 +34,7 @@ public class Engine {
             if (Integer.parseInt(playerAnswer) == correctAnswers[i]) {
                 System.out.println("Correct!");
                 victoryCount += 1;
-                if (victoryCount == 3) {
+                if (victoryCount == data.length) {
                     System.out.println(Utils.congratulate());
                 }
             } else {
