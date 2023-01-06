@@ -9,7 +9,7 @@ import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class Progression {
 
-    static String description = "What number is missing in the progression?";
+    private static String description = "What number is missing in the progression?";
     static final int HIGHRANGE = 100;
     static final int LOWRANGE = 1;
     static final int LENGTHOFPROGRESSION = 10;

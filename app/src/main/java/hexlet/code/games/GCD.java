@@ -8,7 +8,7 @@ import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class GCD {
 
-    static String description = "Find the greatest common divisor of given numbers.";
+    private static String description = "Find the greatest common divisor of given numbers.";
     static final int HIGHRANGE = 100;
     static final int LOWRANGE = 1;
 

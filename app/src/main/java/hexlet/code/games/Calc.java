@@ -8,7 +8,7 @@ import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class Calc {
 
-    static String description = "What is the result of the expression?";
+    private static String description = "What is the result of the expression?";
     static final int LOWRANGE = 0;
     static final int HIGHRANGE = 100;
     static final String[] OPERATORS = {"+", "-", "*"};

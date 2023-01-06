@@ -8,7 +8,7 @@ import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class Prime {
 
-    static String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     static final int LOWRANGE = 2;
     static final int HIGHRANGE = 100;
 

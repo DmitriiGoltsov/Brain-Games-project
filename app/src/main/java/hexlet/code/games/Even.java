@@ -8,7 +8,7 @@ import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class Even {
 
-    static String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    private static String description = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     static final int LOWRANGE = 0;
     static final int HIGHRANGE = 1000;
 
