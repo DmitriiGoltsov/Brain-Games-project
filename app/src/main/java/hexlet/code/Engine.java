@@ -3,43 +3,50 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static void run(String description, String[] data, String[] correctAnswers) {
-        Utils.askName();
-        System.out.println(description);
-        int victoryCount = 0;
-        for (var i = 0; i < data.length; i++) {
-            System.out.println("Question: " + Integer.parseInt(data[i]));
-            Scanner scanner = new Scanner(System.in);
-            String playerAnswer = scanner.next().toLowerCase();
-            if (playerAnswer.equals(correctAnswers[i])) {
-                System.out.println("Correct!");
-                victoryCount += 1;
-                if (victoryCount == data.length) {
-                    System.out.println(Utils.congratulate());
-                }
-            } else {
-                System.out.println(Utils.sendSadMessage(playerAnswer));
-                break;
-            }
-        }
+
+    private static final int NUMBEROFROUND = 3;
+    private static final int NUMBEROFROUNDSTOGENERATEFOR = 1;
+    private static final int NUMBEROFQUESTIONSANDANSWERS = 2;
+
+    public static int getNumberOfRound() {
+        return NUMBEROFROUND;
     }
-    public static void run(String description, String[] data, int[] correctAnswers) {
-        Utils.askName();
+
+    public static int getNumberofquestionsandanswers() {
+        return NUMBEROFQUESTIONSANDANSWERS;
+    }
+
+    public static int getNumberOfRoundsToGenerateFor() {
+        return NUMBEROFROUNDSTOGENERATEFOR;
+    }
+
+    public static void run(String description, String[][] roundsData) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("""
+
+                Welcome to the Brain Games!
+                May I have your name?""");
+        String playerName = scanner.next();
+        System.out.println("\nHello, " + playerName + "!");
+
         System.out.println(description);
         int victoryCount = 0;
-        for (var i = 0; i < data.length; i++) {
-            System.out.println("Question: " + data[i]);
-            Scanner scanner = new Scanner(System.in);
-            String playerAnswer = scanner.next();
-            if (Integer.parseInt(playerAnswer) == correctAnswers[i]) {
-                System.out.println("Correct!");
+
+        for (String[] roundsDatum : roundsData) {
+            System.out.println("Question: " + roundsDatum[0]);
+            String playerAnswer = scanner.next().toLowerCase();
+            if (playerAnswer.equals(roundsDatum[1])) {
+                System.out.println("Your answer: " + playerAnswer + "\nCorrect");
                 victoryCount += 1;
-                if (victoryCount == data.length) {
-                    System.out.println(Utils.congratulate());
+                if (victoryCount == roundsData.length) {
+                    System.out.println("Congratulations, " + playerName + "!");
+                    return;
                 }
             } else {
-                System.out.println(Utils.sendSadMessage(Integer.parseInt(playerAnswer), correctAnswers[i]));
-                break;
+                System.out.println("Your answer: " + playerAnswer + "\n" + playerAnswer
+                        + " is wrong answer ;(. Correct answer was " + roundsDatum[1]
+                        + "\nLet's try again, " + playerName + "!");
+                return;
             }
         }
     }

@@ -8,6 +8,7 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
+
     public static void main(String[] args) {
         Scanner initialScanner = new Scanner(System.in);
 

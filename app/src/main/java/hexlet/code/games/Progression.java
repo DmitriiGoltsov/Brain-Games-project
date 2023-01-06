@@ -3,23 +3,25 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 import java.util.StringJoiner;
+import static hexlet.code.Engine.getNumberofquestionsandanswers;
+import static hexlet.code.Engine.getNumberOfRound;
+import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class Progression {
-    public static void startProgressionGame() {
-        String description = "What number is missing in the progression?";
-        final var numberOfRounds = 3;
-        String[] data = new String[numberOfRounds];
-        int[] correctAnswers = new int[numberOfRounds];
 
-        for (var i = 0; i < numberOfRounds; i++) {
-            var commonDifference = createCommonDifference();
-            int[] numbers = generateProgression(commonDifference);
-            var indexToHide = Utils.generateRandomNumber(numbers.length);
-            String numbersToShow = generateProgressionAsString(numbers, indexToHide);
-            data[i] = numbersToShow;
-            correctAnswers[i] = numbers[indexToHide];
+    static String description = "What number is missing in the progression?";
+    static final int HIGHRANGE = 100;
+    static final int LOWRANGE = 1;
+    static final int LENGTHOFPROGRESSION = 10;
+
+    public static void startProgressionGame() {
+
+        String[][] roundsData = new String[getNumberOfRound()][getNumberofquestionsandanswers()];
+
+        for (var i = 0; i < roundsData.length; i++) {
+            roundsData[i] = generateRoundData()[0];
         }
-        Engine.run(description, data, correctAnswers);
+        Engine.run(description, roundsData);
     }
     public static String generateProgressionAsString(int[] numbers, int indexToHide) {
         String[] numsString = new String[numbers.length];
@@ -37,17 +39,23 @@ public class Progression {
         return result.toString();
     }
     public static int[] generateProgression(int commonDifference) {
-        final var lengthOfProgression = 10;
-        int[] numbers = new int[lengthOfProgression];
+        int[] numbers = new int[LENGTHOFPROGRESSION];
         numbers[0] = commonDifference;
         for (var i = 1; i < numbers.length; i++) {
             numbers[i] = numbers[i - 1] + commonDifference;
         }
         return numbers;
     }
-    public static int createCommonDifference() {
-        final int highRange = 100;
-        final int lowRange = 1;
-        return Utils.generateRandomNumber(lowRange, highRange);
+
+    public static String[][] generateRoundData() {
+        String[][] roundData = new String[getNumberOfRoundsToGenerateFor()][getNumberofquestionsandanswers()];
+        int commonDifference = Utils.generateRandomNumber(LOWRANGE, HIGHRANGE);
+        int indexToHide = Utils.generateRandomNumber(LENGTHOFPROGRESSION);
+        int[] numbers = generateProgression(commonDifference);
+        String numbersAsString = generateProgressionAsString(numbers, indexToHide);
+        roundData[0][0] = numbersAsString;
+        roundData[0][1] = Integer.toString(numbers[indexToHide]);
+
+        return roundData;
     }
 }

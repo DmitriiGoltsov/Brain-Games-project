@@ -2,29 +2,31 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
+import static hexlet.code.Engine.getNumberofquestionsandanswers;
+import static hexlet.code.Engine.getNumberOfRound;
+import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class Prime {
-    public static void startPrimeGame() {
-        String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        final var numberOfRounds = 3;
-        String[] data = new String[numberOfRounds];
-        String[] correctAnswers = new String[numberOfRounds];
 
-        for (var i = 0; i < numberOfRounds; i++) {
-            int number = generateRandomNumber();
-            data[i] = Integer.toString(number);
-            if (isPrime(number)) {
-                correctAnswers[i] = "yes";
-            } else {
-                correctAnswers[i] = "no";
-            }
+    static String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    static final int LOWRANGE = 2;
+    static final int HIGHRANGE = 100;
+
+    public static void startPrimeGame() {
+
+        String[][] roundsData = new String[getNumberOfRound()][getNumberofquestionsandanswers()];
+
+        for (var i = 0; i < roundsData.length; i++) {
+            roundsData[i] = generateRoundData()[0];
         }
-        Engine.run(description, data, correctAnswers);
+        Engine.run(description, roundsData);
     }
-    public static int generateRandomNumber() {
-        final int lowRange = 2;
-        final int highRange = 100;
-        return Utils.generateRandomNumber(lowRange, highRange);
+    public static String[][] generateRoundData() {
+        String[][] roundData = new String[getNumberOfRoundsToGenerateFor()][getNumberofquestionsandanswers()];
+        int number = Utils.generateRandomNumber(LOWRANGE, HIGHRANGE);
+        roundData[0][0] = Integer.toString(number);
+        roundData[0][1] = isPrime(number) ? "yes" : "no";
+        return roundData;
     }
     public static boolean isPrime(int number) {
         final int numberOfPrimeDivisors = 2;

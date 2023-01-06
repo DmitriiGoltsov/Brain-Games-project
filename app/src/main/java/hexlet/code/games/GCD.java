@@ -2,29 +2,37 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
+import static hexlet.code.Engine.getNumberofquestionsandanswers;
+import static hexlet.code.Engine.getNumberOfRound;
+import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class GCD {
-    public static void startGCDGame() {
-        String description = "Find the greatest common divisor of given numbers.";
-        final var numberOfRounds = 3;
-        String[] data = new String[numberOfRounds];
-        int[] correctAnswers = new int[numberOfRounds];
 
-        for (var i = 0; i < numberOfRounds; i++) {
-            int operand1 = generateRoundData();
-            String operand1AsString = Integer.toString(operand1);
-            int operand2 = generateRoundData();
-            String operand2AsString = Integer.toString(operand2);
-            int gCD = findGCD(operand1, operand2);
-            correctAnswers[i] = gCD;
-            data[i] =  operand1AsString + " " + operand2AsString;
+    static String description = "Find the greatest common divisor of given numbers.";
+    static final int HIGHRANGE = 100;
+    static final int LOWRANGE = 1;
+
+    public static void startGCDGame() {
+        String[][] roundsData = new String[getNumberOfRound()][getNumberofquestionsandanswers()];
+
+        for (var i = 0; i < roundsData.length; i++) {
+            String[][] roundData = generateRoundData();
+            roundsData[i] = roundData[roundData.length - 1];
         }
-        Engine.run(description, data, correctAnswers);
+        Engine.run(description, roundsData);
     }
-    public static int generateRoundData() {
-        final int highRange = 100;
-        final int lowRange = 1;
-        return Utils.generateRandomNumber(lowRange, highRange);
+    public static String[][] generateRoundData() {
+        String[][] roundData = new String[getNumberOfRoundsToGenerateFor()][getNumberofquestionsandanswers()];
+
+        int operand1 = Utils.generateRandomNumber(LOWRANGE, HIGHRANGE);
+        String operand1AsString = Integer.toString(operand1);
+        int operand2 = Utils.generateRandomNumber(LOWRANGE, HIGHRANGE);
+        String operand2AsString = Integer.toString(operand2);
+
+        roundData[0][0] = operand1AsString + " " + operand2AsString;
+        roundData[0][1] = Integer.toString(findGCD(operand1, operand2));
+
+        return roundData;
     }
     public static int findGCD(int operand1, int operand2) {
         int length = Math.max(operand1, operand2);

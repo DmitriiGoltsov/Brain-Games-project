@@ -2,36 +2,40 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
+import static hexlet.code.Engine.getNumberofquestionsandanswers;
+import static hexlet.code.Engine.getNumberOfRound;
+import static hexlet.code.Engine.getNumberOfRoundsToGenerateFor;
 
 public class Calc {
+
+    static String description = "What is the result of the expression?";
+    static final int LOWRANGE = 0;
+    static final int HIGHRANGE = 100;
+    static final String[] OPERATORS = {"+", "-", "*"};
     public static void startCalcGame() {
-        String description = "What is the result of the expression?";
-        final var numberOfRounds = 3;
 
-        String[] data = new String[numberOfRounds];
-        int[] correctAnswers = new int[numberOfRounds];
+        String[][] roundsData = new String[getNumberOfRound()][getNumberofquestionsandanswers()];
 
-        for (var i = 0; i < numberOfRounds; i++) {
-            int operand1 = generateRoundData();
-            int operand2 = generateRoundData();
-            String operator = chooseRandomOperator();
-            correctAnswers[i] = calculate(operator, operand1, operand2);
-            String firstOperand = Integer.toString(operand1);
-            String secondOperand = Integer.toString(operand2);
-            data[i] = firstOperand + " " + operator + " " + secondOperand;
+        for (var i = 0; i < roundsData.length; i++) {
+            String[][] roundData = generateRoundData();
+            roundsData[i] = roundData[roundData.length - 1];
         }
-        Engine.run(description, data, correctAnswers);
+        Engine.run(description, roundsData);
     }
-    public static int generateRoundData() {
-        final int lowRange = 0;
-        final int highRange = 100;
-        return Utils.generateRandomNumber(lowRange, highRange);
+    public static String[][] generateRoundData() {
+        String[][] roundData = new String[getNumberOfRoundsToGenerateFor()][getNumberofquestionsandanswers()];
+
+        int operand1 = Utils.generateRandomNumber(LOWRANGE, HIGHRANGE);
+        int operand2 = Utils.generateRandomNumber(LOWRANGE, HIGHRANGE);
+        int randomIndex = Utils.generateRandomNumber(OPERATORS.length);
+        String chosenOperator = OPERATORS[randomIndex];
+        String firstOperand = Integer.toString(operand1);
+        String secondOperand = Integer.toString(operand2);
+        roundData[0][0] = firstOperand + " " + chosenOperator + " " + secondOperand;
+        roundData[0][1] = Integer.toString(calculate(chosenOperator, operand1, operand2));
+        return roundData;
     }
-    public static String chooseRandomOperator() {
-        final String[] operators = {"+", "-", "*"};
-        int randomIndex = Utils.generateRandomNumber(operators.length);
-        return operators[randomIndex];
-    }
+
     public static int calculate(String operator, int operand1, int operand2) {
         int result;
         switch (operator) {
