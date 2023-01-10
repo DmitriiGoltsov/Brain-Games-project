@@ -27,17 +27,14 @@ public class Prime {
         return new String[] {question, answer};
     }
     public static boolean isPrime(int number) {
-        final int numberOfPrimeDivisors = 2;
-        var count = 0;
-        for (var i = 1; i <= number; i++) {
-            var tempCheck = number % i;
-            if (tempCheck == 0) {
-                count++;
-                if (count > numberOfPrimeDivisors) {
-                    return false;
-                }
+
+        boolean flag = true;
+        for (int i = 2; i <= number / 2; i++) {
+            if (number % i == 0) {
+                flag = false;
+                break;
             }
         }
-        return true;
+        return flag;
     }
 }
