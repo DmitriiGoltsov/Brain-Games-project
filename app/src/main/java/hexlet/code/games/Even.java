@@ -21,7 +21,6 @@ public class Even {
     }
     public static String[] generateRoundData() {
         int numberForGame = Utils.generateRandomNumber(LOW_RANGE, HIGH_RANGE);
-        String[][] roundData = new String[1][2];
         String question = Integer.toString(numberForGame);
         String answer = isEven(numberForGame) ? "yes" : "no";
 
