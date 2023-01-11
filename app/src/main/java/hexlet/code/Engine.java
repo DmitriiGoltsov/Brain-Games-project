@@ -9,7 +9,6 @@ public class Engine {
     public static void run(String description, String[][] roundsData) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("""
-
                 Welcome to the Brain Games!
                 May I have your name?""");
         String playerName = scanner.next();
