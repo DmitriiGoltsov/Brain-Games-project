@@ -20,35 +20,33 @@ public class Progression {
         }
         Engine.run(description, roundsData);
     }
-    public static String[] generateProgressionAsString(int[] numbers) {
-        String[] numsString = new String[numbers.length];
-        for (var i = 0; i < numbers.length; i++) {
-            for (var j = 0; j < numsString.length; j++) {
-                numsString[j] = String.valueOf(numbers[i]);
-                i++;
-            }
-        }
 
-        return numsString;
-    }
-    public static int[] generateProgression(int commonDifference) {
-        int[] numbers = new int[LENGTH_OF_PROGRESSION];
-        numbers[0] = commonDifference;
+    public static String[] generateProgression(int firstNumber, int commonDifference, int lengthOfProgression) {
+        int[] numbers = new int[lengthOfProgression];
+        numbers[0] = firstNumber;
         for (var i = 1; i < numbers.length; i++) {
             numbers[i] = numbers[i - 1] + commonDifference;
         }
-        return numbers;
+        String[] numbersAsString = new String[numbers.length];
+        for (var i = 0; i < numbers.length; i++) {
+            for (var j = 0; j < numbersAsString.length; j++) {
+                numbersAsString[j] = String.valueOf(numbers[i]);
+                i++;
+            }
+        }
+        return numbersAsString;
     }
 
     public static String[] generateRoundData() {
 
+        int firstNumber = Utils.generateRandomNumber(LOW_RANGE, HIGH_RANGE);
         int commonDifference = Utils.generateRandomNumber(LOW_RANGE, HIGH_RANGE);
         int indexToHide = Utils.generateRandomNumber(LENGTH_OF_PROGRESSION);
-        int[] numbers = generateProgression(commonDifference);
-        String[] numbersAsString = generateProgressionAsString(numbers);
-        numbersAsString[indexToHide] = "..";
-        String question = String.join(" ", numbersAsString);
-        String answer = Integer.toString(numbers[indexToHide]);
+        String[] progression = generateProgression(firstNumber, commonDifference, LENGTH_OF_PROGRESSION);
+        String answer = progression[indexToHide];
+        progression[indexToHide] = "..";
+        String question = String.join(" ", progression);
+
 
         return new String[] {question, answer};
     }
