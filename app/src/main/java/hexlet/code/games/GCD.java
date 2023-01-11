@@ -21,11 +21,9 @@ public class GCD {
     public static String[] generateRoundData() {
 
         int operand1 = Utils.generateRandomNumber(LOW_RANGE, HIGH_RANGE);
-        String operand1AsString = Integer.toString(operand1);
         int operand2 = Utils.generateRandomNumber(LOW_RANGE, HIGH_RANGE);
-        String operand2AsString = Integer.toString(operand2);
 
-        String question = operand1AsString + " " + operand2AsString;
+        String question = operand1 + " " + operand2;
         String answer = Integer.toString(findGCD(operand1, operand2));
 
         return new String[] {question, answer};
